@@ -57,6 +57,24 @@ const staticPages = [
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   },
+  {
+    url: '/mecidiyekoy-guzellik-merkezi',
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.9,
+  },
+  {
+    url: '/mecidiyekoy-guzellik-merkezi-hizmetler/mecidiyekoy-protez-tirnak',
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+  },
+  {
+    url: '/rofle-mi-ombre-mi-hangisi-size-daha-uygun-mecidiyekoy-rofle-ve-ombre',
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
+  },
 ]
 
 // Hizmetler (statik)
