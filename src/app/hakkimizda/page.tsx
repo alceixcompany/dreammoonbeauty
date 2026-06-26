@@ -1,251 +1,274 @@
 'use client'
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FiTarget, FiEye, FiCheckCircle, FiHeart, FiShield, FiClock } from 'react-icons/fi';
+import {
+  FiArrowRight,
+  FiCheckCircle,
+  FiClock,
+  FiHeart,
+  FiMapPin,
+  FiShield,
+  FiStar,
+  FiTarget,
+  FiUsers,
+} from 'react-icons/fi';
 import PageHero from '@/components/PageHero';
 import { siteConfig } from '@/lib/seo';
 
-const awards = [
+const experiencePoints = [
   {
-    year: '2021',
-    title: '4. Türk Azerbaycan Kardeşlik Ödülü',
-    subtitle: 'En İyi Kozmetik Uzmanı',
+    icon: FiUsers,
+    title: 'Kişiye özel analiz',
+    text: 'Her işlemden önce cilt, beklenti ve günlük rutin birlikte değerlendirilir.',
   },
   {
-    year: '2022',
-    title: 'Altın Melek Ödülü Türkiye',
-    subtitle: 'Yılın En Başarılı Güzellik Salonu',
+    icon: FiShield,
+    title: 'Hijyenik uygulama',
+    text: 'Bakım alanları, ekipmanlar ve ürün akışı profesyonel hijyen standardıyla hazırlanır.',
   },
   {
-    year: '2023',
-    title: 'Gold Face Azerbaycam',
-    subtitle: 'Yılın En İyi Dermatoloğu',
+    icon: FiStar,
+    title: 'Doğal sonuç odağı',
+    text: 'Amaç abartılı bir değişim değil; yüzünüze ve stilinize yakışan dengeli bir görünüm.',
   },
-  {
-    year: '2024',
-    title: 'Diamont of Ozbekistan',
-    subtitle: 'Yılın En İyi Dermatoloğu',
-  },
-  {
-    year: '2025',
-    title: 'Uluslararası Balıkesir Sağlık Bilimleri Akademik Araştırma Kongresi - Türkiye',
-    subtitle: '',
-  },
+];
+
+const values = [
+  { icon: FiShield, title: 'Güven', desc: 'Şeffaf bilgilendirme ve steril çalışma düzeni.' },
+  { icon: FiCheckCircle, title: 'Özen', desc: 'Her randevuda aynı dikkat ve sakin hizmet akışı.' },
+  { icon: FiClock, title: 'Zaman', desc: 'Planlı randevu yönetimi ve bekletmeyen süreçler.' },
+  { icon: FiHeart, title: 'Samimiyet', desc: 'Rahat hissettiren, sıcak ve saygılı iletişim.' },
+];
+
+const processSteps = [
+  'Danışmanlık ve ihtiyaç analizi',
+  'Uygun hizmet ve bakım planı seçimi',
+  'Hijyenik hazırlık ve profesyonel uygulama',
+  'Bakım sonrası yönlendirme ve takip',
 ];
 
 const AboutPage = () => {
   return (
-    <div className="page-flow min-h-screen bg-[var(--lale-emerald-deep)]">
+    <div className="page-flow min-h-screen bg-[var(--lale-cream)]">
       <PageHero
         eyebrow="Hakkımızda"
-        title={<>Zarafetin<br />hikayesi</>}
-        description="Dream Moon Beauty, Mecidiyeköy'de lazer epilasyon, cilt bakımı, kalıcı makyaj, protez tırnak ve kişisel bakım hizmetleri sunar."
-        image="/dreammoon/about.webp"
-        imageAlt="Dream Moon Beauty hakkında"
+        title={<>Dream Moon<br />Beauty</>}
+        description="Mecidiyeköy'de güzellik ve kişisel bakım deneyimini sakin, hijyenik ve kişiye özel bir yaklaşımla sunuyoruz."
+        image="/dreammoon/about-hero-custom.png"
+        imageAlt="Dream Moon Beauty özel bakım atmosferi"
+        heightClassName="min-h-[500px] py-24 sm:min-h-[560px] sm:py-28"
       />
 
-      <section className="lale-dark-section py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-5 sm:px-7 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+      <section className="lale-light-section py-20 sm:py-28">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 sm:px-7 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:px-10">
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-[rgba(212,175,55,0.10)] rounded-2xl text-[var(--lale-gold)] shadow-sm mb-8">
-                <FiHeart className="w-6 h-6" />
-              </div>
+            <div className="lale-kicker mb-7">Dream Moon yaklaşımı</div>
+            <h2 className="max-w-2xl font-serif text-4xl leading-tight text-[var(--dream-dark)] sm:text-5xl lg:text-6xl">
+              Bakımı daha sakin, daha zarif ve size ait hissettiren bir merkez.
+            </h2>
+            <div className="mt-8 space-y-5 text-[17px] leading-8 text-[var(--dream-text)]">
+              <p>
+                Dream Moon Beauty; lazer epilasyon, cilt bakımı, kalıcı makyaj, protez tırnak,
+                kaş-kirpik uygulamaları, ağda, masaj ve kuaför hizmetlerini tek çatı altında sunan
+                profesyonel bir güzellik merkezidir.
+              </p>
+              <p>
+                Her misafirin beklentisi farklı olduğu için standart bir kalıp yerine analiz,
+                doğru yönlendirme ve özenli uygulama sürecine odaklanıyoruz. Amacımız, merkezden
+                ayrılırken sadece bakımlı değil, kendinizle daha iyi temas halinde hissetmeniz.
+              </p>
+            </div>
 
-              <h2 className="font-serif text-4xl sm:text-5xl text-[var(--lale-gold)] mb-8 leading-tight">
-                Dream Moon <span className="text-[var(--lale-gold)]">Beauty</span>
-              </h2>
-
-              <div className="space-y-6 text-[var(--lale-gold)] opacity-70 text-[17px] leading-relaxed">
-                <p>
-                  Dream Moon Beauty, profesyonel güzellik merkezi olarak lazer epilasyon, cilt bakımı, kalıcı makyaj, protez tırnak ve kişisel bakım hizmetleri sunmaktadır. Uzman kadromuz ve son teknoloji cihazlarımızla her müşterimizin kendini özel ve ayrıcalıklı hissetmesini amaçlıyoruz.
+            <div className="mt-10 grid grid-cols-2 gap-4 sm:max-w-xl">
+              <div className="rounded-[8px] border border-[rgba(223,167,69,0.18)] bg-white/70 p-5 shadow-[0_18px_42px_rgba(95,89,108,0.08)]">
+                <div className="font-serif text-4xl text-[var(--lale-gold)]">15+</div>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--dream-text)]">
+                  Yıl deneyim
                 </p>
-                <p>
-                  İstanbul Mecidiyeköy'de güvenilir, hijyenik ve müşteri memnuniyeti odaklı hizmet anlayışımızla; ağda, kaş tasarımı, kirpik lifting, masaj ve kuaför hizmetlerinde de kişiye özel çözümler üretiyoruz.
+              </div>
+              <div className="rounded-[8px] border border-[rgba(223,167,69,0.18)] bg-white/70 p-5 shadow-[0_18px_42px_rgba(95,89,108,0.08)]">
+                <div className="font-serif text-4xl text-[var(--lale-gold)]">360°</div>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--dream-text)]">
+                  Bakım deneyimi
                 </p>
               </div>
+            </div>
+          </motion.div>
 
-              <div className="mt-12 grid grid-cols-2 gap-8">
-                <div>
-                  <div className="text-4xl font-serif text-[var(--lale-gold)] mb-1">15+</div>
-                  <div className="text-xs tracking-widest text-[var(--lale-gold)] opacity-70 uppercase font-bold">Yıl Deneyim</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-serif text-[var(--lale-gold)] mb-1">5000+</div>
-                  <div className="text-xs tracking-widest text-[var(--lale-gold)] opacity-70 uppercase font-bold">Mutlu Danışan</div>
-                </div>
-              </div>
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[8px] border border-white/70 shadow-[0_30px_80px_rgba(95,89,108,0.18)]">
+              <Image
+                src="/dreammoon/about-consultation-custom.png"
+                alt="Dream Moon Beauty danışmanlık deneyimi"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 46vw, 100vw"
+                quality={94}
+              />
+            </div>
+            <div className="absolute -bottom-6 left-5 right-5 rounded-[8px] border border-white/45 bg-[rgba(255,250,248,0.88)] p-5 shadow-[0_20px_52px_rgba(95,89,108,0.16)] backdrop-blur sm:left-auto sm:w-80">
+              <p className="text-sm font-medium leading-7 text-[var(--dream-dark)]">
+                “Güzellik, doğru analizle başlayan kişisel bir bakım yolculuğudur.”
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <div className="relative aspect-[4/5] rounded-[48px] overflow-hidden border border-[rgba(212,175,55,0.22)] shadow-2xl">
-                <Image
-                  src="/dreammoon/about.webp"
-                  alt="Dream Moon Beauty bakım felsefesi"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="absolute -inset-4 border border-[rgba(212,175,55,0.20)] rounded-[56px] -z-10 pointer-events-none" />
-              <div className="absolute -bottom-6 -left-6 bg-[rgba(6,35,31,0.84)] p-8 rounded-[32px] shadow-xl hidden sm:block border border-[rgba(212,175,55,0.18)]">
-                <p className="font-serif text-[var(--lale-gold)] text-xl mb-1">“Güzellik, özgüvenle başlar.”</p>
-                <p className="text-xs tracking-widest text-[rgba(251,250,246,0.66)] uppercase">Dream Moon Beauty Felsefesi</p>
-              </div>
-            </motion.div>
+      <section className="lale-light-section pb-20 sm:pb-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-7 lg:px-10">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            {experiencePoints.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: index * 0.08 }}
+                className="rounded-[8px] border border-[rgba(223,167,69,0.16)] bg-white/78 p-7 shadow-[0_18px_46px_rgba(95,89,108,0.08)]"
+              >
+                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-[8px] bg-[rgba(223,167,69,0.12)] text-[var(--lale-gold)]">
+                  <item.icon className="h-5 w-5" />
+                </div>
+                <h3 className="font-serif text-2xl text-[var(--dream-dark)]">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--dream-text)]">{item.text}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="lale-dark-section py-24 relative">
-        <div className="mx-auto max-w-7xl px-5 sm:px-7 lg:px-10">
-          <div className="relative overflow-hidden rounded-[32px] border border-[rgba(212,175,55,0.18)] bg-[linear-gradient(135deg,rgba(7,37,33,0.98)_0%,rgba(8,49,42,0.94)_55%,rgba(10,65,55,0.88)_100%)] px-6 py-16 shadow-[0_30px_80px_rgba(0,0,0,0.22)] sm:px-10 lg:px-14">
-            <div className="absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.14)_0%,rgba(212,175,55,0)_68%)] pointer-events-none" />
-            <div className="absolute -right-20 top-0 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(15,99,81,0.32)_0%,rgba(15,99,81,0)_70%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#6b6178_0%,#5f596c_52%,#8a6f58_100%)] py-20 text-white sm:py-28">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 sm:px-7 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:px-10">
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative aspect-[16/11] overflow-hidden rounded-[8px] border border-[rgba(255,250,248,0.44)] shadow-[0_28px_72px_rgba(37,30,45,0.24)]"
+          >
+            <Image
+              src="/dreammoon/about-ritual-custom.png"
+              alt="Dream Moon Beauty bakım hazırlığı"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 44vw, 100vw"
+              quality={94}
+            />
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="relative"
-            >
-              <div className="text-center mb-14">
-                <p className="text-sm tracking-[0.35em] text-[rgba(251,250,246,0.74)] uppercase mb-4">Uluslararası</p>
-                <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--lale-gold)] mb-5">
-                  Ödüllerimiz
-                </h2>
-                <div className="mx-auto h-px w-40 bg-[linear-gradient(90deg,transparent,rgba(212,175,55,0.85),transparent)]" />
-              </div>
-
-              <div className="space-y-8">
-                {awards.map((award, index) => (
-                  <motion.div
-                    key={award.year}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.55, delay: index * 0.06 }}
-                    className="grid grid-cols-1 gap-5 rounded-[28px] border border-[rgba(212,175,55,0.12)] bg-[rgba(251,250,246,0.03)] p-6 sm:grid-cols-[140px_1fr] sm:items-center sm:gap-8 sm:p-8"
-                  >
-                    <div className="flex items-center justify-center">
-                      <div className="flex h-24 w-24 items-center justify-center rounded-full border border-[rgba(212,175,55,0.34)] bg-[rgba(212,175,55,0.06)] text-3xl font-serif text-[var(--lale-gold)] shadow-inner shadow-[rgba(212,175,55,0.1)]">
-                        {award.year}
-                      </div>
-                    </div>
-
-                    <div className="text-center sm:text-left">
-                      <h3 className="font-serif text-2xl text-[var(--lale-ivory)] leading-snug">
-                        {award.title}
-                      </h3>
-                      {award.subtitle && (
-                        <p className="mt-3 text-lg text-[rgba(251,250,246,0.76)] uppercase tracking-[0.08em]">
-                          {award.subtitle}
-                        </p>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#f3d29a]">Deneyim akışı</p>
+            <h2 className="mt-5 max-w-2xl font-serif text-4xl leading-tight text-white sm:text-5xl">
+              Her randevu, aceleye gelmeyen net bir bakım planıyla ilerler.
+            </h2>
+            <div className="mt-9 space-y-4">
+              {processSteps.map((step, index) => (
+                <div
+                  key={step}
+                  className="flex gap-4 rounded-[8px] border border-white/45 bg-[rgba(255,250,248,0.92)] p-5 text-[var(--dream-dark)] shadow-[0_16px_42px_rgba(37,30,45,0.16)] backdrop-blur"
+                >
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#e5ad45] font-serif text-lg text-white">
+                    {index + 1}
+                  </span>
+                  <p className="pt-1 text-base font-medium leading-7 text-[var(--dream-dark)]">{step}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="lale-dark-section py-24 relative">
+      <section className="lale-light-section py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-7 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
             <motion.div
-              whileHover={{ y: -5 }}
-              className="p-10 sm:p-14 rounded-[28px] lale-card-dark text-center"
+              whileHover={{ y: -4 }}
+              className="rounded-[8px] border border-[#ead7b8] bg-[#fffaf8] p-8 shadow-[0_20px_52px_rgba(95,89,108,0.10)] sm:p-10"
             >
-              <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-8 text-white">
-                <FiTarget className="w-8 h-8" />
+              <div className="mb-7 flex h-14 w-14 items-center justify-center rounded-[8px] bg-[#f7ead4] text-[#d89d34]">
+                <FiTarget className="h-6 w-6" />
               </div>
-              <h3 className="font-serif text-3xl text-[var(--lale-ivory)] mb-6">Misyonumuz</h3>
-              <p className="text-[rgba(251,250,246,0.68)] leading-relaxed text-[17px]">
-                Hijyen, güven ve kaliteyi ön planda tutarak kişiye özel bir bakım kültürü oluşturmak. Uzman kadromuzla her misafirin ihtiyacını doğru analiz edip, en doğal ve etkili sonuçları sunmak temel görevimizdir.
+              <h3 className="font-serif text-3xl text-[var(--dream-dark)]">Misyonumuz</h3>
+              <p className="mt-5 text-[17px] leading-8 text-[#6f6878]">
+                Hijyen, güven ve kaliteyi merkeze alan; kişiye özel analizle desteklenen doğal,
+                dengeli ve sürdürülebilir bakım sonuçları sunmak.
               </p>
             </motion.div>
 
             <motion.div
-              whileHover={{ y: -5 }}
-              className="p-10 sm:p-14 rounded-[28px] lale-card-dark text-center"
+              whileHover={{ y: -4 }}
+              className="rounded-[8px] border border-[#ead7b8] bg-[#fffaf8] p-8 shadow-[0_20px_52px_rgba(95,89,108,0.10)] sm:p-10"
             >
-              <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-8 text-white">
-                <FiEye className="w-8 h-8" />
+              <div className="mb-7 flex h-14 w-14 items-center justify-center rounded-[8px] bg-[#f7ead4] text-[#d89d34]">
+                <FiMapPin className="h-6 w-6" />
               </div>
-              <h3 className="font-serif text-3xl text-[var(--lale-ivory)] mb-6">Vizyonumuz</h3>
-              <p className="text-[rgba(251,250,246,0.68)] leading-relaxed text-[17px]">
-                Güzellik ve kişisel bakım alanında zarafetiyle ilham veren, yenilikçi uygulamaları sıcak hizmet anlayışıyla birleştiren ve misafirlerinin ilk tercihi olan lider bir marka haline gelmek.
+              <h3 className="font-serif text-3xl text-[var(--dream-dark)]">Vizyonumuz</h3>
+              <p className="mt-5 text-[17px] leading-8 text-[#6f6878]">
+                Mecidiyeköy ve Şişli çevresinde güzellik hizmetlerini zarafet, profesyonellik ve
+                sıcak bir misafir deneyimiyle hatırlanan bir marka haline getirmek.
               </p>
             </motion.div>
           </div>
-        </div>
-      </section>
 
-      <section className="lale-dark-section py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-5 sm:px-7 lg:px-10">
-          <div className="text-center mb-16">
-            <div className="inline-block h-px w-20 bg-[var(--lale-gold)] mb-6" />
-            <h2 className="font-serif text-4xl sm:text-5xl text-[var(--lale-gold)] mb-4">Değerlerimiz</h2>
-            <p className="text-[var(--lale-gold)] opacity-70 tracking-widest uppercase text-xs font-bold">Bizi biz yapan prensiplerimiz</p>
+          <div className="mt-14 text-center">
+            <div className="mx-auto mb-6 h-px w-20 bg-[var(--lale-gold)]" />
+            <h2 className="font-serif text-4xl text-[var(--dream-dark)] sm:text-5xl">Değerlerimiz</h2>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10">
-            {[
-              { icon: FiShield, title: "Güvenlik", desc: "En yüksek hijyen ve güvenlik standartları." },
-              { icon: FiCheckCircle, title: "Kalite", desc: "Onaylı ürünler ve uzman uygulamalar." },
-              { icon: FiClock, title: "Zaman", desc: "Randevu sadakati ve özenli süreçler." },
-              { icon: FiHeart, title: "Tutku", desc: "İşimize duyduğumuz derin sevgi ve ilgi." }
-            ].map((value, i) => (
-              <div key={i} className="text-center">
-                <div className="w-12 h-12 bg-[rgba(212,175,55,0.10)] rounded-xl flex items-center justify-center mx-auto mb-6 text-[var(--lale-gold)] shadow-sm border border-[rgba(212,175,55,0.18)]">
-                  <value.icon className="w-5 h-5" />
+          <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {values.map((value) => (
+              <div
+                key={value.title}
+                className="rounded-[8px] border border-[#ead7b8] bg-[#fffaf8] p-6 text-center shadow-[0_16px_38px_rgba(95,89,108,0.09)]"
+              >
+                <div className="mx-auto mb-5 flex h-11 w-11 items-center justify-center rounded-[8px] bg-[#f7ead4] text-[#d89d34]">
+                  <value.icon className="h-5 w-5" />
                 </div>
-                <h4 className="font-serif text-xl text-[var(--lale-gold)] mb-2">{value.title}</h4>
-                <p className="text-sm text-[var(--lale-gold)] opacity-60 leading-relaxed">{value.desc}</p>
+                <h4 className="font-serif text-xl text-[var(--dream-dark)]">{value.title}</h4>
+                <p className="mt-3 text-sm leading-6 text-[#6f6878]">{value.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="lale-dark-section pb-32 px-5">
-        <div className="max-w-5xl mx-auto relative overflow-hidden rounded-[32px] lale-card-dark">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[rgba(212,175,55,0.08)] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-
-          <div className="relative p-10 sm:p-20 text-center">
-            <h2 className="font-serif text-4xl sm:text-5xl text-[var(--lale-ivory)] mb-6">
-              Güzelliğinizi Keşfetmeye <span className="text-[var(--lale-gold)]">Hazır mısınız?</span>
+      <section className="lale-light-section pb-28">
+        <div className="mx-auto max-w-5xl px-5 sm:px-7 lg:px-10">
+          <div className="overflow-hidden rounded-[8px] border border-[#d8bd8d] bg-[linear-gradient(135deg,#6b6178_0%,#5f596c_58%,#d9a13c_100%)] p-8 text-center shadow-[0_28px_76px_rgba(95,89,108,0.18)] sm:p-14">
+            <h2 className="font-serif text-4xl leading-tight text-white sm:text-5xl">
+              Size özel bakım planını birlikte oluşturalım.
             </h2>
-            <p className="text-[rgba(251,250,246,0.68)] text-lg sm:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-              Size özel bakım planı oluşturmak ve profesyonel çözümlerimizle tanışmak için ekibimizle iletişime geçin.
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#fffaf8]/90 sm:text-lg">
+              Dream Moon Beauty ekibiyle iletişime geçin; beklentinize, cilt yapınıza ve günlük
+              ritminize uygun hizmetleri birlikte planlayalım.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/iletisim"
-                className="lale-gold-button"
-              >
-                İLETİŞİME GEÇİN
+            <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
+              <Link href="/iletisim" className="inline-flex items-center justify-center gap-3 rounded-full border border-white bg-white px-6 py-3 text-sm font-semibold text-[var(--dream-dark)] shadow-[0_16px_34px_rgba(37,30,45,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#fff4df]">
+                İletişime Geçin
+                <FiArrowRight className="h-4 w-4" />
               </Link>
-              <a
-                href={`tel:${siteConfig.phone}`}
-                className="lale-outline-button"
-              >
-                HEMEN ARA
+              <a href={`tel:${siteConfig.phone}`} className="inline-flex items-center justify-center rounded-full border border-white/65 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/18">
+                Hemen Ara
               </a>
             </div>
           </div>

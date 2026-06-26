@@ -95,6 +95,22 @@ const GaleriPage = () => {
     return category ? category.name : 'Genel Koleksiyon';
   };
 
+  const getGalleryImage = (item: GalleryItem) => {
+    if (item.title === 'Kişiye Özel Cilt Bakımı') {
+      return '/dreammoon/kisiye-ozel-cilt-bakimi-gallery.png';
+    }
+
+    return item.imageUrl || item.thumbnailUrl;
+  };
+
+  const getGalleryThumb = (item: GalleryItem) => {
+    if (item.title === 'Kişiye Özel Cilt Bakımı') {
+      return '/dreammoon/kisiye-ozel-cilt-bakimi-gallery.png';
+    }
+
+    return item.thumbnailUrl || item.imageUrl;
+  };
+
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -173,7 +189,7 @@ const GaleriPage = () => {
                 <div className="grid md:grid-cols-[1.05fr_0.95fr]">
                   <div className="relative min-h-[340px]">
                     <Image
-                      src={featuredItems[0].imageUrl || featuredItems[0].thumbnailUrl}
+                      src={getGalleryImage(featuredItems[0])}
                       alt={featuredItems[0].title}
                       fill
                       className="object-cover"
@@ -230,7 +246,7 @@ const GaleriPage = () => {
                     <div className="flex gap-4">
                       <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl bg-[rgba(251,250,246,0.06)]">
                         <Image
-                          src={item.thumbnailUrl || item.imageUrl}
+                          src={getGalleryThumb(item)}
                           alt={item.title}
                           fill
                           className="object-cover"
@@ -299,9 +315,9 @@ const GaleriPage = () => {
                       className="block w-full text-left"
                     >
                       <div className="relative h-80 overflow-hidden bg-white/10">
-                        {item.imageUrl ? (
+                        {getGalleryImage(item) ? (
                           <Image
-                            src={item.imageUrl}
+                            src={getGalleryImage(item)}
                             alt={item.title}
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -447,9 +463,9 @@ const GaleriPage = () => {
 
             <div className="grid max-h-[calc(88vh-96px)] overflow-y-auto lg:grid-cols-[1.08fr_0.92fr]">
               <div className="relative min-h-[320px] bg-[rgba(251,250,246,0.06)] lg:min-h-[620px]">
-                {selectedItem.imageUrl ? (
+                {getGalleryImage(selectedItem) ? (
                   <Image
-                    src={selectedItem.imageUrl}
+                    src={getGalleryImage(selectedItem)}
                     alt={selectedItem.title}
                     fill
                     className="object-cover"

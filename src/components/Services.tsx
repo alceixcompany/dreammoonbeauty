@@ -19,7 +19,7 @@ const services = [
   {
     title: 'Cilt Bakımı',
     description: 'Cilt tipinize göre analiz edilen, kişisel ve sonuç odaklı bakım protokolleri.',
-    image: '/dreammoon/about.webp',
+    image: '/dreammoon/cilt-bakimi-premium.png',
   },
   {
     title: 'Kalıcı Makyaj',

@@ -12,7 +12,7 @@ const servicesData = {
     title: 'Cilt Bakımı',
     icon: '✨',
     description: 'Cildinizin ihtiyacına uygun arındırma, nemlendirme ve canlandırma uygulamaları.',
-    heroImage: '/dreammoon/why-us.webp',
+    heroImage: '/dreammoon/cilt-bakimi-premium.png',
     features: [
       'Kişisel cilt analizi',
       'Derin temizlik uygulaması',
@@ -38,9 +38,9 @@ const servicesData = {
       ]
     },
     gallery: [
-      '/dreammoon/why-us.webp',
-      '/dreammoon/about.webp',
-      '/dreammoon/logo-white.png'
+      '/dreammoon/cilt-bakimi-premium.png',
+      '/dreammoon/kisiye-ozel-cilt-bakimi-gallery.png',
+      '/dreammoon/about-consultation-custom.png'
     ]
   },
   'lazer-epilasyon': {
@@ -549,7 +549,7 @@ const allServicesData = {
   },
   'cilt-bakimi': {
     ...servicesData['cilt-bakimi'],
-    heroImage: '/dreammoon/about.webp',
+    heroImage: '/dreammoon/cilt-bakimi-premium.png',
   },
   'kalici-makyaj': {
     ...servicesData['kalici-makyaj'],

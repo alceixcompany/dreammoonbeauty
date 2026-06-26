@@ -77,7 +77,7 @@ const services = [
     description:
       'Tüm cilt tiplerine uygun analiz ve kişiye özel bakım planıyla cildinizi yeniliyoruz.',
     highlights: ['Ücretsiz analiz', 'Kişisel bakım planı', 'Hijyenik uygulama'],
-    image: '/dreammoon/about.webp',
+    image: '/dreammoon/cilt-bakimi-premium.png',
   },
   {
     slug: 'masaj',

@@ -64,6 +64,14 @@ const Gallery = () => {
     return category ? category.name : 'Kategori Yok';
   };
 
+  const getGalleryImage = (item: GalleryItem) => {
+    if (item.title === 'Kişiye Özel Cilt Bakımı') {
+      return '/dreammoon/kisiye-ozel-cilt-bakimi-gallery.png';
+    }
+
+    return item.imageUrl;
+  };
+
   if (loading) {
     return (
       <section className="lale-light-section py-20">
@@ -104,9 +112,9 @@ const Gallery = () => {
               className="group relative overflow-hidden rounded-[30px] border border-[rgba(223,167,69,0.16)] bg-white/88 shadow-[0_20px_60px_rgba(95,89,108,0.10)] transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_30px_70px_rgba(95,89,108,0.16)]"
             >
               <div className="relative h-[340px] overflow-hidden">
-                {item.imageUrl ? (
+                {getGalleryImage(item) ? (
                   <Image
-                    src={item.imageUrl}
+                    src={getGalleryImage(item)}
                     alt={item.title}
                     fill
                     className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
